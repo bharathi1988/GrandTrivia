@@ -19,10 +19,10 @@ public class TriviaControllerTest {
     MockMvc mockMvc;
 
     @Test
-    public void getAllQuestions_ReturnsEmptyList() throws Exception {
+    public void getAllQuestions_ReturnsExpectedList() throws Exception {
         mockMvc.perform(get("/api/v1/questions"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$").exists())
-                .andExpect(jsonPath("$.length()").value(0));
+                .andExpect(jsonPath("$.length()").value(2));
     }
 }
