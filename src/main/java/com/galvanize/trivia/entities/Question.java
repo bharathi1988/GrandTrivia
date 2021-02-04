@@ -1,9 +1,6 @@
 package com.galvanize.trivia.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -24,7 +21,8 @@ public class Question {
 
     private LocalDateTime createdAt;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumns({ @JoinColumn(name = "QUESTION_ID", referencedColumnName = "ID") })
     private List<Answer> answerList;
 
     public Question(){

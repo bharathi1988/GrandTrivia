@@ -23,6 +23,8 @@ public class TriviaControllerTest {
         mockMvc.perform(get("/api/v1/questions"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$").exists())
-                .andExpect(jsonPath("$.length()").value(2));
+                .andExpect(jsonPath("$.length()").value(2))
+                .andExpect(jsonPath("$.[0].answerList.length()").value(3))
+                .andExpect(jsonPath("$.[1].answerList.length()").value(3));
     }
 }

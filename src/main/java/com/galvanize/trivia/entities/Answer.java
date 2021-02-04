@@ -1,5 +1,6 @@
 package com.galvanize.trivia.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -11,6 +12,7 @@ public class Answer {
     @GeneratedValue
     private Long id;
 
+    @Column(name = "question_id")
     private Long questionId;
 
     private String choice;
