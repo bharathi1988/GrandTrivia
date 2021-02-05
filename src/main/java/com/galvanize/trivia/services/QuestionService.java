@@ -25,9 +25,11 @@ public class QuestionService {
     }
 
     public List<Question> getRandomQuestions(int count) {
-        List<Question> questions = questionRepository.findAll();
         Random random = new Random();
+
+        List<Question> questions = questionRepository.findAll();
         Collections.shuffle(questions, new Random(random.nextInt()));
-        return questions.stream().limit(10).collect(Collectors.toList());
+
+        return questions.stream().limit(count).collect(Collectors.toList());
     }
 }
